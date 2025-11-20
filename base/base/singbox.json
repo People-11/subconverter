@@ -39,15 +39,15 @@
                 "server": "dns_resolver"
             },
             {
-                "geosite": [
-                    "category-ads-all"
+                "rule_set": [
+                    "geosite-category-ads-all"
                 ],
                 "server": "dns_block",
                 "disable_cache": true
             },
             {
-                "geosite": [
-                    "geolocation-!cn"
+                "rule_set": [
+                    "geosite-geolocation-!cn"
                 ],
                 "query_type": [
                     "A",
@@ -56,8 +56,8 @@
                 "server": "dns_fakeip"
             },
             {
-                "geosite": [
-                    "geolocation-!cn"
+                "rule_set": [
+                    "geosite-geolocation-!cn"
                 ],
                 "server": "dns_proxy"
             }
@@ -87,8 +87,10 @@
         {
             "type": "tun",
             "tag": "tun-in",
-            "inet4_address": "172.19.0.1/30",
-            "inet6_address": "fdfe:dcba:9876::1/126",
+            "address": [
+                "172.19.0.1/30",
+                "fdfe:dcba:9876::1/126"
+            ],
             "auto_route": true,
             "strict_route": true,
             "stack": "mixed",

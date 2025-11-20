@@ -309,15 +309,15 @@ enhanced-mode-by-rule = true
                 "server": "dns_resolver"
             },
             {
-                "geosite": [
-                    "category-ads-all"
+                "rule_set": [
+                    "geosite-category-ads-all"
                 ],
                 "server": "dns_block",
                 "disable_cache": true
             },
             {
-                "geosite": [
-                    "geolocation-!cn"
+                "rule_set": [
+                    "geosite-geolocation-!cn"
                 ],
                 "query_type": [
                     "A",
@@ -326,8 +326,8 @@ enhanced-mode-by-rule = true
                 "server": "dns_fakeip"
             },
             {
-                "geosite": [
-                    "geolocation-!cn"
+                "rule_set": [
+                    "geosite-geolocation-!cn"
                 ],
                 "server": "dns_proxy"
             }
@@ -363,10 +363,12 @@ enhanced-mode-by-rule = true
         {
             "type": "tun",
             "tag": "tun-in",
-            "inet4_address": "172.19.0.1/30",
-            {% if default(request.singbox.ipv6, "") == "1" %}
-            "inet6_address": "fdfe:dcba:9876::1/126",
-            {% endif %}
+            "address": [
+                "172.19.0.1/30"
+                {% if default(request.singbox.ipv6, "") == "1" %}
+                ,"fdfe:dcba:9876::1/126"
+                {% endif %}
+            ],
             "auto_route": true,
             "strict_route": true,
             "stack": "mixed",
